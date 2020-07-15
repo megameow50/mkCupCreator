@@ -11,9 +11,10 @@ function prettyPrint(trackList){
 
 
 function removeFromList(element, list){
-	const index = list.indexOf(element);
-	if (index > -1) {
-  		list.splice(element, 1);
+	let index = list.indexOf(element);
+	while (index > -1) {
+  		let result = list.splice(index, 1);
+        index = list.indexOf(element);
   	}
 }
 
@@ -53,6 +54,7 @@ function trackGenerator(){
     for (let i = 0; i < 3; i++ ){
     	track = secondChoices[Math.floor(Math.random() * secondChoices.length)];
     	myTracks.push(track);
+    	removeFromList(track, secondChoices);
 		removeFromList(track, thirdChoices);
     	removeFromList(track, finalChoices);
     }
