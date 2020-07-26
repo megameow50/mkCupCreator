@@ -17,6 +17,7 @@ function removeFromList(element, list){
         index = list.indexOf(element);
   	}
 }
+
 function cupName(){
     let names = ['Sheikah Cup', 'Red Shell Cup', 'Bobomb Cup', 'Clown Car Cup', 'Rainbow Cup', 'Thwomp Cup', 'Whomp Cup', 'Toad Cup',
     'Dry Bones Cup', 'Cucco Cup', 'Hylian Cup', 'Shield Cup', 'Sword Cup', 'Monita Cup', '? Block Cup', 'Coin Cup', 'Hammer Cup',
