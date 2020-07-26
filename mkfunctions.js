@@ -81,3 +81,52 @@ function trackGenerator(){
 	return prettyPrint(myTracks);
 }
 
+
+
+/*
+Code below is for Wii, which is on the page accessable by pressing the Switch Games button
+
+*/
+
+
+function wiiTrackGenerator(){
+    let firstChoices = ['Moo Moo Meadows', 'DS Desert Hills', 'Luigi Circuit', 'Mushroom Gorge', 'Mario Circuit', 'Daisy Circuit', 'GCN Peach Beach',
+    'DS Yoshi Falls', 'N64 Mario Raceway', 'GBA Shyguy Beach', 'GCN Waluigi Stadium', 'GCN Mario Circuit', 'SNES Mario Circuit 3', 'Koopa Cape'];
+
+
+    let secondChoices = ['Moo Moo Meadows', 'Mushroom Gorge', 'DK Summit', 'Toad\'s Factory', 'Mario Circuit', 'Coconut Mall', 'Koopa Cape',
+    'Maple Treeway', 'Moonview Highway', 'SNES Ghost Valley 2', 'N64 Sherbet Land', 'DS Delfino Square', 'N64 DK\'s Jungle Parkway', 'GCN Mario Circuit',
+    'DS Peach Gardens', 'GCN DK Mountain'];
+    
+    let thirdChoices = ['Mushroom Gorge', 'DK Summit', 'Wario\'s Goldmine', 'Maple Treeway', 'Grumble Volcano', 'Dry Dry Ruins', 'Moonview Highway',
+    'DS Delfino Square', 'GCN Waluigi Stadium', 'GBA Bowser\'s Castle 3', 'DS Peach Gardens', 'Coconut Mall'];
+     
+    let finalChoices = ['Dry Dry Ruins', 'Toad\'s Factory', 'Wario\'s Goldmine', 'Bowser\'s Castle', 'Rainbow Road', 'GBA Bowser\'s Castle 3',
+    'N64 Bowser\'s Castle', 'Maple Treeway', 'Grumble Volcano', 'Mario Circuit', 'Coconut Mall', 'Bowser\'s Castle', 'Bowser\'s Castle', 
+    'N64 Bowser\'s Castle', 'N64 Bowser\'s Castle', 'Rainbow Road', 'Rainbow Road']; 
+     
+    let myTracks = [];
+
+    let track = firstChoices[Math.floor(Math.random() * firstChoices.length)];
+    myTracks.push(track);
+    removeFromList(track, secondChoices);
+    removeFromList(track, thirdChoices);
+    removeFromList(track, finalChoices);
+
+
+    track = secondChoices[Math.floor(Math.random() * secondChoices.length)];
+    myTracks.push(track);
+    removeFromList(track, secondChoices);
+    removeFromList(track, thirdChoices);
+    removeFromList(track, finalChoices);
+    
+
+    track = thirdChoices[Math.floor(Math.random() * thirdChoices.length)];
+    myTracks.push(track);
+    removeFromList(track, finalChoices);
+
+    track = finalChoices[Math.floor(Math.random() * finalChoices.length)];
+    myTracks.push(track);
+
+    return prettyPrint(myTracks);
+}
