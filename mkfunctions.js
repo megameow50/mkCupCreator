@@ -130,3 +130,112 @@ function wiiTrackGenerator(){
 
     return prettyPrint(myTracks);
 }
+
+//new DLC
+
+
+
+//Battle Course/Mode Generator
+
+
+var gameCount = 1; //Number of games here. 1 = 4 (or 5 if random), so on
+
+
+
+function getOccurrence(array, value) {
+    return array.filter((v) => (v === value)).length;
+};
+
+function removeOccurrence(array, value) {
+    return array.filter((v) => (v !== value));
+};
+
+
+function noDuplicatesInList(originalArray, listLength) {
+
+var choices = [];
+var thisPick = 0;
+var lastPick = 0;
+var thisPickCount = 0;
+var lastPickCount = 0;
+
+for (var x = 0; x < listLength; x++) {
+	thisPick = originalArray[Math.floor(Math.random() * originalArray.length)]
+	thisPickCount = getOccurrence(originalArray, thisPick);
+	originalArray = removeOccurrence(originalArray, thisPick);
+	for (var y = 0; y < lastPickCount; y++) {
+    	originalArray.push(lastPick);
+	};
+	choices.push(thisPick);
+	lastPick = thisPick;
+	lastPickCount = thisPickCount
+    
+};
+
+return choices
+};
+
+
+function mk8BattleCreator() {
+
+var modes = ["Random", "Random", "Random", "Random", "Random", "Random", "Random", "Random", "Shine Thief",
+"Shine Thief", "Shine Thief", "Shine Thief", "Renegade Roundup",
+"Renegade Roundup", "Renegade Roundup", "Renegade Roundup", "Coin Runners",
+"Balloon Battle", "Balloon Battle", "Bob-omb Blast", "Bob-omb Blast", "Random", "Random"];
+
+var mainTracks = ["Luigi's Mansion", "Dragon Palace", "Wuhu Town", 
+"Luigi's Mansion", "Dragon Palace", "Wuhu Town",
+"Luigi's Mansion", "Dragon Palace", "Wuhu Town", "Battle Course 1",
+"Battle Stadium", "Battle Course 1", "Urchin Underpass"];
+
+var tracksShine = ["Luigi's Mansion", "Dragon Palace", "Wuhu Town",
+"Luigi's Mansion", "Dragon Palace", "Wuhu Town",
+"Luigi's Mansion", "Dragon Palace", "Wuhu Town", "Battle Stadium",
+"Sweet Sweet Kingdom", "Battle Course 1"];
+
+var tracksRoundup = ["Luigi's Mansion", "Wuhu Town", "Dragon Palace", 
+"Luigi's Mansion", "Wuhu Town", "Dragon Palace", "Luigi's Mansion",
+"Battle Course 1", "Sweet Sweet Kingdom"]
+
+
+
+
+//Mode generator
+var theMode = modes[Math.floor(Math.random() * modes.length)];
+
+
+
+
+//The tracks
+var theTracks = [];
+if (theMode === "Balloon Battle" || theMode === "Coin Runners" || 
+theMode === "Bob-omb Blast") {
+
+	theTracks = noDuplicatesInList(mainTracks, 4);
+
+} else if (theMode === "Random") {
+
+	theTracks = noDuplicatesInList(tracksShine, 5);
+
+} else if (theMode === "Shine Thief") {
+		
+    theTracks = noDuplicatesInList(tracksShine, 4);
+
+} else if (theMode === "Renegade Roundup") {
+	
+    theTracks = noDuplicatesInList(tracksRoundup, 4);
+    
+}
+var html = "<strong>" + theMode + "</strong>";
+html+= "<br>";
+html += prettyPrint(theTracks);
+return html;
+}
+
+
+
+
+
+
+
+

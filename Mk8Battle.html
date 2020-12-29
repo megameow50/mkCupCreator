@@ -16,28 +16,27 @@
 <script>
 	$(document).ready(function(){
 	
-	$("#main").append(wiiTrackGenerator());
-	$("#title").append(cupName());
+	$("#main").append(mk8BattleCreator());
+	
 	})
 
 	function  listUpdate(){
 		$("#main").html("");
-		$("#main").append(wiiTrackGenerator());
-		$("#title").html("");
-		$("#title").append(cupName());
-
+		$("#main").append(mk8BattleCreator());
+		
 	}
 
 
 </script>
 <div style="text-align:center">
 <body>
-<h1 style="text-align:center"> Mario Kart Wii <br> VS Cup Creator </h1>
-<input type="image" onClick="listUpdate()" src="./question_block.png" height="120" align=""> 
+<h1 style="text-align:center"> Mario Kart 8 Deluxe <br> Battle Creator </h1>
+<input type="image" onClick="listUpdate()" src="./battle_button.png" height="180" align=""> 
 </input> 
 </div>
-<h3> <div style="text-align:center" id="title"></div> </h3>
+<!-- <h3> <div style="text-align:center" id="title"></div> </h3> -->
 <div style="text-align:center" id="main"></div>
-<br> <br> <div style="text-align:center"> <a href=".", class="btn btn-primary", role="button">Switch</a href> </div>
-</body>
+<br> <br> <div style="text-align:center"> <a href=".", class="btn btn-primary", role="button">VS</a href> </div>
+
+<br> <div style="text-align:center"> <a href="./mkWii.html", class="btn btn-primary", role="button">Wii</a href> </div></body>
 </html>
